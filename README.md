@@ -1,2 +1,2 @@
-# WeatherStatus
-Weather status backend project
+# WeatherChecker
+Weather checker backend project
