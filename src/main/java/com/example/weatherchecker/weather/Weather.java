@@ -20,21 +20,24 @@ public class Weather {
     private Long id;
     private double degree;
     private String weather;
-    private boolean isGood;
+    private WeatherStatus isGood;
+    private String city;
     private LocalDate dob;
 
-    public Weather(Long id, double degree, String weather, boolean isGood, LocalDate date) {
+    public Weather(Long id, double degree, String weather, WeatherStatus isGood, String city, LocalDate date) {
         this.id = id;
         this.degree = degree;
         this.weather = weather;
         this.isGood = isGood;
+        this.city = city;
         this.dob = date;
     }
 
-    public Weather(double degree, String weather, boolean isGood, LocalDate date) {
+    public Weather(double degree, String weather, WeatherStatus isGood, String city, LocalDate date) {
         this.degree = degree;
         this.weather = weather;
         this.isGood = isGood;
+        this.city = city;
         this.dob = date;
     }
 
@@ -54,11 +57,11 @@ public class Weather {
         this.weather = weather;
     }
 
-    public boolean isGood() {
+    public WeatherStatus isGood() {
         return isGood;
     }
 
-    public void setGood(boolean good) {
+    public void setGood(WeatherStatus good) {
         isGood = good;
     }
 
@@ -68,6 +71,22 @@ public class Weather {
 
     public void setDob(LocalDate dob) {
         this.dob = dob;
+    }
+
+    public double getDegree() {
+        return degree;
+    }
+
+    public void setDegree(double degree) {
+        this.degree = degree;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 
     @Override

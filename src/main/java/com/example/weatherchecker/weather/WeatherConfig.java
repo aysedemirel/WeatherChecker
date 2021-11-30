@@ -12,7 +12,7 @@ public class WeatherConfig {
 
     CommandLineRunner commandLineRunner(WeatherRepository repository) {
         return args -> {
-            Weather weatherMonday = new Weather(30.0, "sunny", true, LocalDate.of(2021, Month.JULY, 23));
+            Weather weatherMonday = new Weather(30.0, "sunny", WeatherStatus.GOOD, "Isparta",LocalDate.of(2021, Month.JULY, 23));
             repository.saveAll(List.of(weatherMonday));
         };
     }
