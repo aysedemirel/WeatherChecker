@@ -9,6 +9,6 @@ import java.util.Optional;
 
 @Repository
 public interface WeatherRepository extends JpaRepository<Weather, Long> {
-    @Query("SELECT w FROM Weather w WHERE w.date = ?1")
-    Optional<Weather> findWeatherByDate(LocalDate date);
+    @Query("SELECT w FROM Weather w WHERE w.city = ?1")
+    Optional<Weather> findWeatherByCity(String city);
 }

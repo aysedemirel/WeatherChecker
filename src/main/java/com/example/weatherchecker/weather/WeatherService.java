@@ -20,12 +20,13 @@ public class WeatherService {
     }
 
     public List<Weather> getWeathers() {
+        System.out.println("BURADA: ");
         return weatherRepository.findAll();
     }
 
     public void addNewWeather(Weather weather) {
-        Optional<Weather> weatherOptinal = weatherRepository.findWeatherByDate(weather.getDob());
-        if (weatherOptinal.isPresent()) {
+        Optional<Weather> weatherOptional = weatherRepository.findWeatherByCity(weather.getCity());
+        if (weatherOptional.isPresent()) {
             throw new IllegalStateException("date presented");
         }
         weatherRepository.save(weather);
@@ -41,14 +42,14 @@ public class WeatherService {
         weatherRepository.deleteById(id);
     }
     @Transactional
-    public void updateWeather(Long id, double degree, String weatherCond, boolean isGood, LocalDate date)
+    public void updateWeather(Long id, double degree, String weatherCond, String isGood, LocalDate date, String city)
     {
         Weather weather = weatherRepository.findById(id).orElseThrow(() -> new IllegalStateException("weather with id " + id+"does not exist"));
         if(weatherCond != null && weatherCond.length() > 0 && !Objects.equals(weather.getWeather(), weatherCond));
         {
             weather.setWeather(weatherCond);
         }
-        Optional<Weather> weatherOptional = weatherRepository.findWeatherByDate(date);
+        Optional<Weather> weatherOptional = weatherRepository.findWeatherByCity(city);
         if(weatherOptional.isPresent())
         {
             throw new IllegalStateException("weather presented");

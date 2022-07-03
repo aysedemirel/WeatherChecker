@@ -20,11 +20,11 @@ public class Weather {
     private Long id;
     private double degree;
     private String weather;
-    private WeatherStatus isGood;
+    private String isGood;
     private String city;
     private LocalDate dob;
 
-    public Weather(Long id, double degree, String weather, WeatherStatus isGood, String city, LocalDate date) {
+    public Weather(Long id, double degree, String weather, String isGood, String city, LocalDate date) {
         this.id = id;
         this.degree = degree;
         this.weather = weather;
@@ -33,7 +33,7 @@ public class Weather {
         this.dob = date;
     }
 
-    public Weather(double degree, String weather, WeatherStatus isGood, String city, LocalDate date) {
+    public Weather(double degree, String weather, String isGood, String city, LocalDate date) {
         this.degree = degree;
         this.weather = weather;
         this.isGood = isGood;
@@ -57,11 +57,11 @@ public class Weather {
         this.weather = weather;
     }
 
-    public WeatherStatus isGood() {
+    public String isGood() {
         return isGood;
     }
 
-    public void setGood(WeatherStatus good) {
+    public void setGood(String good) {
         isGood = good;
     }
 
